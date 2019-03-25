@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Aspect.Master.cs" Inherits="webs.webforms.Accueil" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Mon Webshop</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div>
+
+            <div>
+                <ul>
+                    <li><a href="/webforms/Accueil.aspx">Accueil</a></li>
+                    <li><a href="/webforms/Connexion.aspx">Se connecter</a></li>
+                    <li><a href="/webforms/Panier.aspx">Mon panier</a></li>
+                    <li><a href="/webforms/listerBiere.aspx">Nos bières</a></li>
+                    <li><a href="/webforms/listerAlcool.aspx">Nos alcools</a></li>
+                    <li><a href="/webforms/Inscription.aspx">Créer un compte</a></li>
+                </ul>
+            </div>
+        
+            <div>
+                <asp:ContentPlaceHolder ID="CPHMenu" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <div>
+                <asp:ContentPlaceHolder ID="CPHContenu" runat="server">
+                   <p>Contenu</p> 
+                </asp:ContentPlaceHolder>
+            </div>
+
+            
+
+        </div>
+
+    </form>
+</body>
+</html>
