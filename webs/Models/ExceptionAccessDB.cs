@@ -6,7 +6,10 @@ using webs.classesMetier;
 
 namespace webs.Models
 {
-    public class ExceptionAccessDB
+    public class ExceptionAccessDB :Exception
     {
+        public ExceptionAccessDB(string msgDetail) : base(msgDetail)
+        {
+        }
     }
 }
