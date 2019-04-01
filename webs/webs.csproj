@@ -73,8 +73,11 @@
     <Content Include="webforms\Accueil.aspx" />
     <Content Include="webforms\Connexion.aspx" />
     <Content Include="webforms\Inscription.aspx" />
+    <Content Include="webforms\JavaScript.js" />
     <Content Include="webforms\ListerAlcool.aspx" />
     <Content Include="webforms\ListerBiere.aspx" />
+    <Content Include="webforms\MotifsHTML\motifAlcool.html" />
+    <Content Include="webforms\pagemessage.aspx" />
     <Content Include="webforms\Panier.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -82,12 +85,14 @@
     <Compile Include="classesMetier\Biere.cs" />
     <Compile Include="classesMetier\Client.cs" />
     <Compile Include="classesMetier\Commande.cs" />
+    <Compile Include="classesMetier\ExceptionMetier.cs" />
     <Compile Include="classesMetier\LigneCom.cs" />
+    <Compile Include="classesMetier\ListeAlcool.cs" />
     <Compile Include="classesMetier\Produit.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AlcoolDAO.cs" />
+    <Compile Include="Models\ListeAlcoolDAO.cs" />
     <Compile Include="Models\BaseDAO.cs" />
     <Compile Include="Models\BiereDAO.cs" />
     <Compile Include="Models\ClientDAO.cs" />
@@ -139,6 +144,13 @@
     <Compile Include="webforms\ListerBiere.aspx.designer.cs">
       <DependentUpon>ListerBiere.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webforms\pagemessage.aspx.cs">
+      <DependentUpon>pagemessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webforms\pagemessage.aspx.designer.cs">
+      <DependentUpon>pagemessage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webforms\Panier.aspx.cs">
       <DependentUpon>Panier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,6 +158,7 @@
     <Compile Include="webforms\Panier.aspx.designer.cs">
       <DependentUpon>Panier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webforms\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -156,6 +169,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="webforms\Aspect.Master" />
+    <Content Include="webforms\StyleSheet.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,9 +20,9 @@ namespace webs.Models
                 if (SqlConn == null)
                 {
                     SqlConn = new SqlConnection("Integrated security=false;" +
-                    "user id=genial;" +
+                   "user id=genial;" +
                    "password=super;" +
-                   "Data Source=DESKTOP-EQQH1LK\\SQLEXPRESS;" +
+                   "Data Source=ROLAND-PC\\SQLEXPRESS;" +
                    "Initial Catalog=WEBSHOP;");
                     SqlConn.Open();
                 }
@@ -39,6 +39,12 @@ namespace webs.Models
         public ListeAlcoolDAO GetListeAlcoolDAO()
         {
             return new ListeAlcoolDAO(SqlConn);
-        }
+        }
+
+        public ClientDAO getInstClientDAO()
+        {
+            return new ClientDAO(SqlConn);
+        }
+
     }
 }

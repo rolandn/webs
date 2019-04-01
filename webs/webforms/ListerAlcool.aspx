@@ -8,7 +8,6 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="CPHContenu" runat="server">
-    <div>
-        <p>Liste des Alcools :</p>
-    </div>
+        <h1>Liste des Alcools :</h1>
+   
 </asp:Content>

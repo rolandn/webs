@@ -86,7 +86,7 @@ namespace webs.webforms
 */
         public void Rediriger(string pageASP)
         {
-            HttpContext.Current.Response.Redirect("/PresentationLayer/" + pageASP, false);
+            HttpContext.Current.Response.Redirect("/webforms/" + pageASP, false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         /**
@@ -99,7 +99,7 @@ namespace webs.webforms
             try
             {
                 codeMotif = File.ReadAllText(HttpContext.Current.Server.MapPath("~") +
-                "/PresentationLayer/MotifsHTML/" + fichierMotif);
+                "/webforms/MotifsHTML/" + fichierMotif);
             }
             catch (Exception ex)
             {

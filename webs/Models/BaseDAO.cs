@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace webs.Models
 {
-    public abstract class BaseDAO<T>
+    public class BaseDAO<T>
     {
         protected SqlConnection SqlConn = null;
         /**
@@ -22,7 +23,7 @@ namespace webs.Models
         */
 
      
-
+        
         public virtual T Charger(int num)
         {
             return default(T);

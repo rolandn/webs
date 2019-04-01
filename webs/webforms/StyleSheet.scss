@@ -1,0 +1,362 @@
+﻿/* reinitialiser certaines caractéristiques de la page */
+* {
+    margin: 0px; /* marges externes */
+    padding: 0px; /* marges internes */
+    font-family: verdana; /* police de caractères */
+    font-style: normal; /* normal (= pas gras, pas italique, ...) */
+    background-color: white; /* couleur d'arrière plan */
+    color: black; /* couleur du texte */
+}
+
+/* ********************** Conteneurs DIV ********************** */
+/* cadre général placé au centre de la page dans lequel les menus, l'image de l'école et
+le contenu de la page seront placés */
+.div-cadre {
+    width: 921px; /* largeur de 921 points */
+    margin: auto; /* centrer horizontalement */
+    color: black;
+    background-color: white;
+}
+
+/* cadre au-dessus dans lequel va figurer la barre de menus */
+.div-menu {
+    width: 921px; /* largeur de 921 points */
+    height: 55px; /* hauteur de 55 points */
+    margin: 0px;
+}
+
+/* cadre au-dessus dans lequel se trouve l'image des palmiers */
+.div-image-intro {
+    width: 921px; /* largeur de 921 points */
+    height: 135px; /* hauteur de 135 points */
+    margin-top: 0px 0px 10px 0px; /* marge de 10 points en bas */
+}
+
+/* cadre au centre de l'écran */
+.div-contenu {
+    width: 921px;
+    height: auto;
+}
+
+/* ********************** Images ********************** */
+/* caractéristiques de l'image de l'école affichée en dessous de la
+barre des menus */
+.image-ecoleexterieure {
+    height: 135px;
+    width: 100%; /* la largeur est celle du cadre contenant */
+    text-align: center; /* centrer horizontalement */
+    background-repeat: no-repeat; /* éviter la répétition de l'image */
+    border-radius: 10px; /* coins arrondis */
+    margin: 0px;
+    padding: 0px;
+}
+
+/* caractéristiques des images de "Bernard" présentes à gauche
+dans la page d'accueil */
+.image-contenu-gauche {
+    width: 40%; /* largeur à 40% de la largeur réelle */
+    height: 40%; /* hauteur à 40% de la largeur réelle */
+    float: left; /* placement à gauche */
+    margin: 10px 10px 10px 0px;
+    border-radius: 10px;
+}
+
+/* caractéristiques des images de "Bernard" présentes à droite
+dans la page d'accueil */
+.image-contenu-droit {
+    width: 40%;
+    height: 40%;
+    float: right; /* placement à droite */
+    margin: 10px 0px 10px 10px;
+    border-radius: 10px;
+}
+
+/* caractéristiques de l'image de la maison à côté du menu "L'accueil" */
+.imagehome {
+    float: left; /* alignement à gauche */
+    vertical-align: middle;
+    height: 15px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+/* ********************** Barres de menus ********************** */
+/* caractéristiques des menus de la barre de menus */
+.menu-principal li {
+    float: left; /* alignement horiz. et à gauche des menus */
+    list-style: none; /* enlever les puces */
+}
+
+.menu-principal-connexion li {
+    float: right; /* alignement horiz. et à gauche des menus */
+    list-style: none; /* enlever les puces */
+}
+
+.menu-principal-connexion-lien {
+    float: right;
+    text-decoration: none;
+    list-style: none;
+    display: block; /* afficher le menu dans un bloc */
+    height: 15px; /* hauteur du bloc */
+    font-size: 15px; /* taille du texte */
+    line-height: 15px; /* centrer verticalement le texte */
+    text-align: center; /* centrer horizontalement le texte */
+    margin: 10px 0px 10px 0px; /* marges externes haut et bas de 10 points */
+    padding: 10px; /* marges internes de 10 points */
+}
+
+/* caractéristiques de chaque menu */
+.menu-principal-lien {
+    text-decoration: none; /* enlever le soulignement */
+    color: black;
+    background-color: white;
+    display: block; /* afficher le menu dans un bloc */
+    height: 15px; /* hauteur du bloc */
+    font-size: 15px; /* taille du texte */
+    line-height: 15px; /* centrer verticalement le texte */
+    text-align: center; /* centrer horizontalement le texte */
+    margin: 10px 0px 10px 0px; /* marges externes haut et bas de 10 points */
+    padding: 10px; /* marges internes de 10 points */
+}
+
+/* caractéristiques d'un menu quand la souris est dessus */
+.menu-principal-lien:hover {
+    color: black;
+    background-color: rgb(220,230,255);
+    border-radius: 5px;
+}
+
+.menu-principal-connexion:hover {
+    color: black;
+    background-color: rgb(220,230,255);
+    border-radius: 5px;
+}
+
+/* ********************** Titres et paragraphes ********************** */
+/* caractéristiques de la balise <p> (paragraphe) */
+p {
+    text-align: justify; /* alignement justifié */
+    color: black;
+    font-size: 14px;
+    margin: 10px 0px 15px 0px; /* marges ext. 10 points en haut et 15 points en bas */
+}
+
+/* caractéristiques de la balise h1 (header - titre) */
+h1 {
+    margin: 20px 0px 20px 0px; /* marges ext. 20 points haut et bas */
+    padding: 0px 0px 5px 0px; /* marges int. 5 points bas */
+    text-align: center; /* centrer */
+    font-style: normal;
+    color: royalblue;
+    border-radius: 10px;
+    border: 1px solid rgb(220,230,255); /* bordure de 1 point bleue clair */
+    background-color: rgb(250,251,255);
+}
+
+/* caractéristiques de la balise h3 (header 3) */
+h3 {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: royalblue;
+    text-align: center;
+    background-color: white;
+}
+/* ********************** tables ********************** */
+/* caractéristiques du tableau "conteneur" affiché dans la majorité des pages
+(cadres autour de chaque alcool, chemise etc) */
+.elementecran {
+    width: 919px;
+    border: 1px solid rgb(220,230,255);
+    border-collapse: collapse;
+}
+
+/* caractéristiques de la zone où est affiché le nom
+de chaque prof, cours et élève */
+.elementecran-td-titre {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: royalblue;
+    border-bottom: 1px solid rgb(220,230,255);
+    background-color: rgb(250,251,255);
+}
+
+/* caractéristique de la zone où est affichée l'image
+de chaque prof, cours et élève */
+.elementecran-td-image {
+    width: 163px;
+    margin: 0px;
+    border: 1px solid rgb(220,230,255);
+    padding: 5px;
+}
+
+/* caractéristiques de l'image de chaque prof, cours et élève */
+.elementecran-image {
+    border: 1px solid rgb(220,230,255);
+    width: 163px;
+    height: 163px;
+    margin: 5px 5px 2px 5px;
+    border-radius: 10px;
+}
+
+/* d'un label utilisé comme titre (nom du prof, nom du cours, ...) */
+.elementecran-titre {
+    color: royalblue;
+    background-color: rgb(250,251,255);
+    width: 300px;
+}
+
+/* caractéristiques de chaque zone où est affichée une infos
+pour chaque prof, cours, ... */
+.elementecran-td-texte {
+    padding: 10px;
+}
+
+/* caractéristiques de la zone où sont affichés les menus
+associés à chaque élève */
+.elementecran-td-menu {
+    width: 300px;
+    border: 1px solid rgb(220,230,255);
+    margin: 0px;
+    padding: 5px;
+}
+
+/* caractéristiques des menus associés à chaque élève */
+.elementecran-menu li {
+    float: none; /* alignement vertical */
+    list-style: none; /* enlever les puces (bullet point) */
+}
+
+/* caractéristiques de chaque menu */
+.elementecran-menu-lien {
+    text-decoration: none; /* enlever le soulignement */
+    color: black;
+    background-color: white;
+    font-size: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    display: block;
+    margin: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
+}
+
+/* caractéristiques d'un menu quand la souris est dessus */
+.elementecran-menu-lien:hover {
+    color: black;
+    background-color: rgb(220,230,255);
+    border-radius: 5px;
+}
+
+/* caractéristiques de la table contenant l'image à uploader */
+.elementecran-table-image {
+    float: none;
+    margin: auto;
+    border: 1px solid rgb(220,230,255);
+    border-radius: 10px;
+}
+
+/* ********************** zones de saisie ********************** */
+/* caractéristiques des zones de saisie présentes dans les pages d'ajout
+et de modification */
+.saisie-texte {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-right: 10px;
+    border: 1px solid dimgray;
+    border-radius: 3px;
+}
+
+/* ********************** Boutons ********************** */
+/* caractéristiques des boutons présents dans les pages d'ajout
+et de modification */
+.bouton {
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    border: 1px solid dimgray;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+/* caractéristiques d'un bouton quand la souris est dessus */
+.bouton:hover {
+    background-color: rgb(220,230,255);
+    color: black;
+}
+/* ********************** Messages d'information ********************** */
+/* caractéristique du message d'erreur affiché quand une saisie
+incorrecte est réalisée, etc. */
+.msg {
+    color: red;
+    visibility: visible;
+    text-align: center;
+    font-size: 15px;
+    display: block;
+}
+
+#BAjouterPanier {
+    border: 1px solid dimgray;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+/* ************** gridview *************************/
+/*gridview*/
+
+.gridview {
+    width: auto;
+    background: blue;
+}
+
+.table table tbody tr td a,
+.table table tbody tr td span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #00008B;
+    text-decoration: none;
+    background-color: #FFD700;
+    border: 1px solid #ddd;
+}
+
+.table table > tbody > tr > td > span {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #FFD700;
+    border-color: #337ab7;
+}
+
+.table table > tbody > tr > td:first-child > a,
+.table table > tbody > tr > td:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.table table > tbody > tr > td:last-child > a,
+.table table > tbody > tr > td:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.table table > tbody > tr > td > a:hover,
+.table table > tbody > tr > td > span:hover,
+.table table > tbody > tr > td > a:focus,
+.table table > tbody > tr > td > span:focus {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+/*end gridview */
+
+
+
+

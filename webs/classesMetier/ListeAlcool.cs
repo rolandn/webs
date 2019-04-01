@@ -26,10 +26,10 @@ namespace webs.classesMetier
             gout = Gout;
             degreAlcool = DegreAlcool;
             provenance = Provenance;
-            nom = nom;
-            NomImage = NomImage;
-            Prix = Prix;
-            QuantiteStock = QuantiteStock;
+            nom = Nom;
+            nomImage = NomImage;
+            prix = Prix;
+            quantiteStock = QuantiteStock;
 
 
         }
@@ -94,7 +94,7 @@ namespace webs.classesMetier
 
             set
             {
-                nom = value;
+                Nom = value;
             }
         }
 
@@ -123,7 +123,14 @@ namespace webs.classesMetier
                 Prix = value;
             }
         }
-        public int quantiteStock { get; set; }
+
+        public int quantiteStock {
+
+            get { return QuantiteStock;}
+
+            set { QuantiteStock = value;}
+        }
+
+        
     }
-}
 }

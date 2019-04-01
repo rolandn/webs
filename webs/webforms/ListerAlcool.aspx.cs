@@ -11,6 +11,14 @@ namespace webs.webforms
 {
     public partial class ListerAlcool : System.Web.UI.Page
     {
+
+        static string MotifHTML;
+
+        static ListerAlcool()
+        {
+            MotifHTML = Tools.ChargerMotifHTML("motifAlcool.html");
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -18,25 +26,25 @@ namespace webs.webforms
                 ContentPlaceHolder cph = (ContentPlaceHolder)Master.FindControl("CPHContenu");
 
                 List<ListeAlcool> liste = new List<ListeAlcool>();
-                liste = ((FabriqueDAO)Session["FabriqueDAO"]).getInstListeAlcool().ListerTous();
+                liste = ((FabriqueDAO)Session["FabriqueDAO"]).GetListeAlcoolDAO().ListerTous();
                 if (liste.Count == 0)
                 {
                     new Tools().RedirigerMessage(
-                    "Il n'y a aucune bouteille dans la base de données!");
+                    "Il n'y a aucun alcool dans la base de données!");
                     return;
                 }
                 while (liste.Count > 0)
                 {
                     cph.Controls.Add(new LiteralControl(
                                 string.Format(MotifHTML,
-                                liste[0].Gout,          //0
-                                liste[0].DegréAlcool,   //1
-                                liste[0].Provenance,    //2    
-                                liste[0].Nom,           //3
-                                liste[0].Image,         //4
-                                liste[0].PrixU,        //5
-                                liste[0].IDBout,
-                                liste[0].QtéStock)));
+                                liste[0].gout,              //0
+                                liste[0].degreAlcool,       //1
+                                liste[0].provenance,        //2    
+                                liste[0].nom,               //3
+                                liste[0].nomImage,          //4
+                                liste[0].prix,              //5
+                                liste[0].numArticle,        //6
+                                liste[0].quantiteStock)));  //7
 
                     liste.RemoveAt(0);
                 }
