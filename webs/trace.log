@@ -11,3 +11,30 @@
 31-03-2019 17:49 -- classe ListerAlcool -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
 31-03-2019 19:02 -- classe AjouterClient -- méthode Bcontinuer_Click() -- La référence d'objet n'est pas définie à une instance d'un objet.
 31-03-2019 19:08 -- classe AjouterClient -- méthode Bcontinuer_Click() -- La référence d'objet n'est pas définie à une instance d'un objet.
+02-04-2019 18:13 -- classe ListerAlcool -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+02-04-2019 18:15 -- classe ListerAlcool -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+02-04-2019 18:15 -- classe ListerAlcool -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+02-04-2019 18:15 -- classe ListerAlcool -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+02-04-2019 18:32 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 18:33 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 18:35 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 18:35 -- classe Problème de connexion -- méthode Bcontinuer_Click() -- Must declare the scalar variable "@email_ctl".
+02-04-2019 18:56 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 18:58 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 18:59 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 19:01 -- classe ListerAlcools -- méthode Page_load() -- Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+Ambiguous column name 'NumArticle'.
+02-04-2019 19:06 -- classe Problème de connexion -- méthode Bcontinuer_Click() -- Must declare the scalar variable "@email_ctl".

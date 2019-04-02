@@ -23,7 +23,7 @@ namespace webs.Models
             {
                 SqlCommand sqlCmd = new SqlCommand();
 
-                sqlCmd.CommandText = "select nom,prenom,email,mdp from client where email = @email_ctl";
+                sqlCmd.CommandText = "select numClient,email,mdp from client where email = @email";
 
                 sqlCmd.Connection = SqlConn;
 
@@ -32,9 +32,9 @@ namespace webs.Models
 
                 if (reader.Read())
 
-                    clt = new Client(Convert.ToInt32(reader["ID_clt"]),
-                                     Convert.ToString(reader["email_clt"]),
-                                     Convert.ToString(reader["password_clt"]));
+                    clt = new Client(Convert.ToInt32(reader["numClient"]),
+                                     Convert.ToString(reader["email"]),
+                                     Convert.ToString(reader["mdp"]));
 
                 reader.Close();
 

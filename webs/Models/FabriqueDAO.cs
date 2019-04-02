@@ -46,5 +46,12 @@ namespace webs.Models
             return new ClientDAO(SqlConn);
         }
 
+        public Ligne_CmdDAO getInstLigne_CmdDAO()
+        {
+            return new Ligne_CmdDAO(SqlConn);
+        }
+
+        
+
     }
 }

@@ -45,8 +45,8 @@ namespace webs.Models
             {
                 SqlCommand sqlCmd = new SqlCommand();
 
-                sqlCmd.CommandText = "select NumArticle,DegreAlcool,Gout,Provenance,nom,nomImage,prix,quantiteStock " +
-                "from produit inner join alcool on NumArticle=NumArticle " +
+                sqlCmd.CommandText = "select alcool.NumArticle,DegreAlcool,Gout,Provenance,nom,nomImage,prix,quantiteStock " +
+                "from produit inner join alcool on alcool.NumArticle=produit.NumArticle " +
                 "order by NumArticle asc";
                 sqlCmd.Connection = SqlConn;
                 SqlDataReader sqlReader = sqlCmd.ExecuteReader();

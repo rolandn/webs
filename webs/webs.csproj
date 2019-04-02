@@ -86,7 +86,7 @@
     <Compile Include="classesMetier\Client.cs" />
     <Compile Include="classesMetier\Commande.cs" />
     <Compile Include="classesMetier\ExceptionMetier.cs" />
-    <Compile Include="classesMetier\LigneCom.cs" />
+    <Compile Include="classesMetier\Ligne_Cmd.cs" />
     <Compile Include="classesMetier\ListeAlcool.cs" />
     <Compile Include="classesMetier\Produit.cs" />
     <Compile Include="Global.asax.cs">
@@ -99,7 +99,7 @@
     <Compile Include="Models\CommandeDAO.cs" />
     <Compile Include="Models\ExceptionAccessDB.cs" />
     <Compile Include="Models\FabriqueDAO.cs" />
-    <Compile Include="Models\LigneComDAO.cs" />
+    <Compile Include="Models\Ligne_CmdDAO.cs" />
     <Compile Include="Models\ProduitDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="webforms\Accueil.aspx.cs">

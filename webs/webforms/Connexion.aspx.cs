@@ -29,10 +29,10 @@ namespace webs.webforms
 
                 else
                 {
-                    if (clt.Password == hashedTB)
+                    if (clt.Password == TBPassword.Text)
                     {
                         Session["user"] = clt.ID_clt;
-                        new Tools().Rediriger("Default.aspx");
+                        new Tools().Rediriger("ListerAlcool.aspx");
                     }
                 }
 
