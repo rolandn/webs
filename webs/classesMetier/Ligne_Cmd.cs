@@ -10,7 +10,7 @@ namespace webs.classesMetier
         public class Ligne_Cmd
         {
             private int numCmd;
-            private int numProduit;
+            private int numArticle;
             private int qte;
 
             public int NumCmd
@@ -18,16 +18,16 @@ namespace webs.classesMetier
                 get { return numCmd; }
                 set { numCmd = value; }
             }
-            public int NumProduit
-            {
+            public int NumArticle
+        {
                 get
                 {
-                    return numProduit;
+                    return numArticle;
                 }
 
                 set
                 {
-                    numProduit = value;
+                numArticle = value;
                 }
             }
             public int Qte
@@ -53,20 +53,20 @@ namespace webs.classesMetier
             public Ligne_Cmd(Ligne_Cmd LC)
             {
                 NumCmd = LC.NumCmd;
-                NumProduit = LC.NumProduit;
+                NumArticle = LC.NumArticle;
                 Qte = LC.Qte;
 
             }
-            public Ligne_Cmd(int numCmd, int numProduit, int qte)
+            public Ligne_Cmd(int numCmd, int numArticle, int qte)
             {
                 NumCmd = numCmd;
-                NumProduit = numProduit;
+                NumArticle = numArticle;
                 Qte = qte;
             }
 
             public String toString()
             {
-                return this.NumCmd + " ) " + this.NumProduit + this.Qte;
+                return this.NumCmd + " ) " + this.NumArticle + this.Qte;
             }
 
         }

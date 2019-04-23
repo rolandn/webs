@@ -27,8 +27,8 @@ namespace webs.Models
                 sqlCmd.Connection = SqlConn;
 
                 sqlCmd.Parameters.Add("@numCmd", SqlDbType.Int).Value = obj.NumCmd;
-                sqlCmd.Parameters.Add("@numProduit", SqlDbType.VarChar).Value = obj.NumProduit;
-                sqlCmd.Parameters.Add("@Qté", SqlDbType.VarChar).Value = obj.Qte;
+                sqlCmd.Parameters.Add("@NumArticle", SqlDbType.VarChar).Value = obj.NumArticle;
+                sqlCmd.Parameters.Add("@Qte", SqlDbType.VarChar).Value = obj.Qte;
                 sqlCmd.Parameters.Add("RetVal", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 return (sqlCmd.ExecuteNonQuery() == 0) ? false : true;
