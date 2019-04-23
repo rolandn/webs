@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using webs.classesMetier;
 using System.Data.SqlClient;
+using webs.Models;
 
 namespace webs.Models
 {
@@ -28,31 +29,25 @@ namespace webs.Models
         {
             List<Alcool> liste = new List<Alcool>();
 
-            SqlCommand sqlCmd = new SqlCommand();
-
             try
             {
-                sqlCmd.CommandText = "SELECT Produit.idProduit, Produit.nom, Produit.quantiteStock, Produit.prix, Produit.nomImage, Alcool.degre, Alcool.gout, Alcool.provenance " +
-                                     "FROM Produit, Alcool " +
-                                     "WHERE Produit.idProduit = Alcool.idProduit";
+                SqlCommand sqlCmd = new SqlCommand();
 
+                sqlCmd.CommandText = "select alcool.NumArticle,DegreAlcool,Gout,Provenance,nom,nomImage,prix,quantiteStock " +
+                "from produit inner join alcool on alcool.NumArticle=produit.NumArticle " +
+                "order by NumArticle asc";
                 sqlCmd.Connection = SqlConn;
                 SqlDataReader sqlReader = sqlCmd.ExecuteReader();
-
                 while (sqlReader.Read() == true)
-                {
-                    liste.Add(new Alcool(Convert.ToInt32(sqlReader["idProduit"]),
-                                          Convert.ToString(sqlReader["nom"]),
-                                          Convert.ToInt32(sqlReader["quantiteStock"]),
-                                          Convert.ToDouble(sqlReader["prix"]),
-                                          Convert.ToString(sqlReader["nomImage"]),
-                                          Convert.ToDouble(sqlReader["degre"]),
-                                          Convert.ToString(sqlReader["gout"]),
-                                          Convert.ToString(sqlReader["provenance"]))
-                                          );
-                }
+                    liste.Add(new Alcool(
+                       Convert.ToInt32(sqlReader["NumArticle"]),
+                       Convert.ToInt32(sqlReader["DegreAlcool"]),
+                       Convert.ToString(sqlReader["Gout"]),
+                       Convert.ToString(sqlReader["Provenance"])));
                 sqlReader.Close();
+
             }
+
             catch (Exception e)
             {
                 throw new ExceptionAccessDB(e.Message);

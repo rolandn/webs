@@ -24,9 +24,9 @@ namespace webs.webforms
             try
             {
                 // on récupère l'id
-                int productId = Convert.ToInt32(Request.QueryString["idProduit"]);
+                int NumArticle = Convert.ToInt32(Request.QueryString["NumArticle"]);
                 Produit produit = ((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().Charger(
-                    productId);
+                    NumArticle);
 
                 // on met la variable session["Panier"]  dans une liste de produit         
                 List<Produit> liste = (List<Produit>)Session["Panier"];
@@ -41,9 +41,9 @@ namespace webs.webforms
                     bool found = false;
                     foreach (Produit p in liste)
                     {
-                        if (p.ID_produit == productId)
+                        if (p.numArticle == NumArticle)
                         {
-                            p.Quantité++;
+                            p.Quantite++;
                             found = true;
 
                             break;
@@ -57,11 +57,11 @@ namespace webs.webforms
                 // calcul du prix total
                 foreach (Produit p in liste)
                 {
-                    prixTotal += p.Quantité * p.PrixU;
+                    prixTotal += p.Quantite * p.Prix;
                     if (prixTotal >= 150)
                     {
-                        p.Quantité--;
-                        if (p.Quantité == 0)
+                        p.Quantite--;
+                        if (p.Quantite == 0)
                         {
                             liste.Remove(p);
                         }
@@ -81,11 +81,11 @@ namespace webs.webforms
                 {
                     // on crée la row du tableau
                     row = dt.NewRow();
-                    row["Produit #"] = p.ID_produit;
+                    row["Produit #"] = p.numArticle;
                     row["Nom Produit"] = p.Nom;
-                    row["Qté"] = p.Quantité;
-                    row["Prix Unitaire"] = p.PrixU;
-                    row["Prix Total"] = p.Quantité * p.PrixU;
+                    row["Qté"] = p.Quantite;
+                    row["Prix Unitaire"] = p.Prix;
+                    row["Prix Total"] = p.Quantite * p.Prix;
 
                     dt.Rows.Add(row);
                 }
@@ -93,7 +93,7 @@ namespace webs.webforms
                 this.GridView1.DataBind();
 
             }
-            catch (ExceptionDBAccess ex)
+            catch (ExceptionAccessDB ex)
             {
                 new Tools().RedirigerErreurSQL("ChargerProduit", "Page_load()",
                 ex.Message, "Problème de base de données lors du listage des alcools!");
@@ -112,7 +112,7 @@ namespace webs.webforms
 
             dt.Columns.Add(CreateColumn("Produit #", System.Type.GetType("System.Int32")));
             dt.Columns.Add(CreateColumn("Nom Produit", Type.GetType("System.String")));
-            dt.Columns.Add(CreateColumn("Qté", Type.GetType("System.Int32")));
+            dt.Columns.Add(CreateColumn("Qte", Type.GetType("System.Int32")));
             dt.Columns.Add(CreateColumn("Prix Unitaire", Type.GetType("System.Decimal")));
             dt.Columns.Add(CreateColumn("Prix Total", Type.GetType("System.Decimal")));
 
@@ -165,7 +165,7 @@ namespace webs.webforms
 
                 foreach (Produit p in liste)
                 {
-                    prixTotal += p.Quantité * p.PrixU;
+                    prixTotal += p.Quantite * p.Prix;
                 }
 
                 // on crée la commande et on envoie en DB
@@ -176,10 +176,10 @@ namespace webs.webforms
                 // on crée une ligne commande pour chaque produit
                 foreach (Produit p in liste)
                 {
-                    Ligne_Cmd l_cmd = new Ligne_Cmd(idcmd, p.ID_produit, p.Quantité);
+                    Ligne_Cmd l_cmd = new Ligne_Cmd(idcmd, p.numArticle, p.Quantite);
                     if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstLigne_CmdDAO().Ajouter(l_cmd)) == false)
                         throw new Exception("problème lors de l'ajout de la ligne commande");
-                    if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().ModifierStock(p, p.Quantité)) == false)
+                    if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().ModifierStock(p, p.Quantite)) == false)
                         throw new Exception("problème lors d'ajustement du stock");
                 }
 
@@ -188,7 +188,7 @@ namespace webs.webforms
                 // si tout va bien on revoit une page de confirmation
                 new Tools().RedirigerMessage("Votre commande a bien été effectuée. En vous remerciant");
             }
-            catch (ExceptionDBAccess ex)
+            catch (ExceptionAccessDB ex)
             {
                 new Tools().RedirigerErreurSQL("Problème de connexion", "Bcontinuer_Click()",
                 ex.Message,

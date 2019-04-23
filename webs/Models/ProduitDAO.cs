@@ -9,115 +9,82 @@ using webs.Models;
 
 namespace webs.Models
 {
-   
-        public class ProduitDAO : BaseDAO<Produit>
+
+    public class ProduitDAO : BaseDAO<Produit>
+    {
+        public ProduitDAO(SqlConnection sqlConn) : base(sqlConn)
         {
-            public ProduitDAO(SqlConnection sqlConn) : base(sqlConn)
+
+        }
+
+        public override bool Ajouter(Produit obj)
+        {
+            return false;
+        }
+
+        public override Produit Charger(int num)
+        {
+            Produit prod = null;
+            try
             {
-            }
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.CommandText = "chargerProduit";
+                sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            public override bool Ajouter(Produit obj)
+                sqlCmd.Connection = SqlConn;
+                sqlCmd.Parameters.Add("@numProduit", SqlDbType.Int).Value = num;
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                if (reader.Read())
+
+                    prod = new Produit(Convert.ToInt32(reader["NumArticle"]),
+                                    Convert.ToString(reader["nom"]),
+                                    Convert.ToInt32(reader["quantiteStock"]),
+                                    Convert.ToDecimal(reader["prix"]),
+                                    Convert.ToString(reader["nomImage"])                     
+                                    );
+                reader.Close();
+
+            }
+            catch (Exception e)
             {
-                throw new NotImplementedException();
+                throw new ExceptionAccessDB(e.Message);
             }
+            return prod;
 
-            public override Produit Charger(int num)
-            {
-                Produit produit = null;
+        }
 
-                try
-                {
-                    SqlCommand sqlCmd = new SqlCommand();
-                    sqlCmd.CommandText =
-                    "select * " +
-                   "from produit, biere, alcool " +
-                   "where NumArticle = @num";
-                    sqlCmd.Connection = SqlConn;
-                    sqlCmd.Parameters.Add("@num", SqlDbType.Int).Value = num;
-                    SqlDataReader sqlReader = sqlCmd.ExecuteReader();
-                    if (sqlReader.Read() == true)
-                        produit = new Produit(Convert.ToInt32(sqlReader["NumArticle"]),
-                                              Convert.ToString(sqlReader["nom"]),
-                                              Convert.ToInt32(sqlReader["quantiteStock"]),
-                                              Convert.ToDouble(sqlReader["prix"]),
-                                              Convert.ToString(sqlReader["nomImage"])
-                       );
-                    sqlReader.Close();
-                    return produit;
-                }
-                catch (Exception e)
-                {
-                    throw new ExceptionAccessDB(e.Message);
-                }
-            }
+        public override List<Produit> ListerTous()
+        {
+            return null;
+        }
+        public override bool Modifier(Produit obj)
+        {
+            return false;
+        }
 
-            public override List<Produit> ListerTous()
-            {
-                List<Produit> liste = new List<Produit>();
+        /*
+         * modifier la quantité en stock du produit
+         * */
+        public bool ModifierStock(Produit obj, int qte)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandText = "ajusterStock";
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                BiereDAO chemiseDAO = new BiereDAO(SqlConn);
-                AlcoolDAO alcoolDAO = new AlcoolDAO(SqlConn);
+            sqlCmd.Connection = SqlConn;
 
-                liste.AddRange(BiereDAO.ListerTous());
-                liste.AddRange(alcoolDAO.ListerTous());
+            sqlCmd.Parameters.Add("@numProduit", SqlDbType.Int).Value = obj.numArticle;
+            sqlCmd.Parameters.Add("@quantiteStock", SqlDbType.Int).Value = qte;
+            sqlCmd.Parameters.Add("RetVal", SqlDbType.Int).Direction = ParameterDirection.Output;
 
-                return liste;
-            }
+            return (sqlCmd.ExecuteNonQuery() == 0) ? false : true;
+        }
 
-            public List<KeyValuePair<Produit, int>> ListerProduitCommande(int idCommande)
-            {
-                // la liste kvp avec id des produits de la commande et leur nombre associé
-                List<KeyValuePair<int, int>> produitsId = new List<KeyValuePair<int, int>>();
-
-                // tout les produits
-                List<Produit> allProduits = new List<Produit>();
-
-                // la liste kvp finale à retourner
-                List<KeyValuePair<Produit, int>> produits = new List<KeyValuePair<Produit, int>>();
-
-                try
-                {
-                    SqlCommand sqlcmd = new SqlCommand();
-                    sqlcmd.Connection = this.SqlConn;
-
-                    sqlcmd.CommandText = "select Produit.idProduit, Ajout.quantite  " +
-                                          "from Produit, Ajout, Commande " +
-                                          "where Produit.idProduit = Ajout.idProduit " +
-                                          "and Ajout.idCommande = Commande.idCommande " +
-                                          "and Commande.idCommande = @idCommande ";
-                    sqlcmd.Parameters.Add("@idCommande", SqlDbType.Int).Value = idCommande;
-
-                    SqlDataReader sqlReader = sqlcmd.ExecuteReader();
-
-                    while (sqlReader.Read())
-                        produitsId.Add(new KeyValuePair<int, int>((Convert.ToInt32(sqlReader[0])), Convert.ToInt32(sqlReader[1])));
-
-                    sqlReader.Close();
-
-                    allProduits = this.ListerTous();
-
-                    foreach (var p in allProduits)
-                        foreach (var kvp in produitsId)
-                            if (p.IdProduit == kvp.Key)
-                                produits.Add(new KeyValuePair<Produit, int>(p, kvp.Value));
-
-                }
-                catch (Exception e)
-                {
-                    throw new ExceptionAccesBD(e.Message);
-                }
-
-                return produits;
-            }
-
-            public override bool Modifier(Produit obj)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override bool Supprimer(int num)
-            {
-                throw new NotImplementedException();
-            }
-        
+        public override bool Supprimer(int num)
+        {
+            return false;
+        }
     }
+
+}
