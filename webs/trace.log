@@ -38,3 +38,14 @@ Ambiguous column name 'NumArticle'.
 Ambiguous column name 'NumArticle'.
 Ambiguous column name 'NumArticle'.
 02-04-2019 19:06 -- classe Problème de connexion -- méthode Bcontinuer_Click() -- Must declare the scalar variable "@email_ctl".
+23-04-2019 20:19 -- classe ChargerProduit -- méthode Page_load() -- Could not find stored procedure 'chargerProduit'.
+23-04-2019 20:19 -- classe ChargerProduit -- méthode Page_load() -- Could not find stored procedure 'chargerProduit'.
+30-04-2019 18:30 -- classe ChargerProduit -- méthode Page_load() -- Could not find stored procedure 'chargerProduit'.
+30-04-2019 18:50 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 18:56 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 19:47 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 19:52 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 20:07 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 20:10 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 20:12 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+30-04-2019 20:22 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.

@@ -23,10 +23,9 @@ namespace webs.webforms
                 return;
             try
             {
-                // on récupère l'id
+                // on récupère NumArticle = {6}
                 int NumArticle = Convert.ToInt32(Request.QueryString["NumArticle"]);
-                Produit produit = ((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().Charger(
-                    NumArticle);
+                Produit produit = ((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().Charger(NumArticle);
 
                 // on met la variable session["Panier"]  dans une liste de produit         
                 List<Produit> liste = (List<Produit>)Session["Panier"];

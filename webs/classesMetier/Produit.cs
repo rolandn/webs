@@ -11,16 +11,20 @@ namespace webs.classesMetier
         private int NumArticle;
         private string nom;
         private int quantiteStock;
-        private double prix;
+        private decimal prix;
         private string nomImage;
+        private bool Active;
 
-        public Produit(int NumArticle, string nom, int quantiteStock, double prix, string nomImage)
+        public int Quantite { get; set; } = 1;
+
+        public Produit(int NumArticle, string nom, int quantiteStock, decimal prix, string nomImage, bool Active)
         {
             this.numArticle = NumArticle;
             this.Nom = nom;
             this.QuantiteStock = quantiteStock;
             this.Prix = prix;
             this.NomImage = nomImage;
+            this.active = Active;
         }
 
         public Produit(int NumArticle)
@@ -69,7 +73,7 @@ namespace webs.classesMetier
             }
         }
 
-        public double Prix
+        public decimal Prix
         {
             get
             {
@@ -92,6 +96,19 @@ namespace webs.classesMetier
             set
             {
                 nomImage = value;
+            }
+        }
+
+        public bool active
+        {
+            get
+            {
+                return Active;
+            }
+
+            set
+            {
+                Active = value;
             }
         }
 

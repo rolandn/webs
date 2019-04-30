@@ -88,10 +88,12 @@
     <Compile Include="classesMetier\ExceptionMetier.cs" />
     <Compile Include="classesMetier\Ligne_Cmd.cs" />
     <Compile Include="classesMetier\ListeAlcool.cs" />
+    <Compile Include="classesMetier\Panier.cs" />
     <Compile Include="classesMetier\Produit.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlcoolDAO.cs" />
     <Compile Include="Models\ListeAlcoolDAO.cs" />
     <Compile Include="Models\BaseDAO.cs" />
     <Compile Include="Models\BiereDAO.cs" />
@@ -158,6 +160,13 @@
     <Compile Include="webforms\Panier.aspx.designer.cs">
       <DependentUpon>Panier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webforms\panier_bis.aspx.cs">
+      <DependentUpon>panier_bis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webforms\panier_bis.aspx.designer.cs">
+      <DependentUpon>panier_bis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webforms\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +178,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="webforms\Aspect.Master" />
+    <Content Include="webforms\panier_bis.aspx" />
     <Content Include="webforms\StyleSheet.scss" />
   </ItemGroup>
   <ItemGroup>

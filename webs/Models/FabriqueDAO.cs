@@ -51,7 +51,15 @@ namespace webs.Models
             return new Ligne_CmdDAO(SqlConn);
         }
 
-        
+        public ProduitDAO getInstProduitDAO()
+        {
+            return new ProduitDAO(SqlConn);
+        }
+
+        public CommandeDAO getInstCommandeDAO()
+        {
+            return new CommandeDAO(SqlConn);
+        }
 
     }
 }

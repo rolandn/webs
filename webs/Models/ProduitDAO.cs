@@ -22,42 +22,44 @@ namespace webs.Models
             return false;
         }
 
-        public override Produit Charger(int num)
+        public override List<Produit> ListerTous()
         {
-            Produit prod = null;
-            try
+           
+            List<Produit> liste = new List<Produit>();
+           try
             {
                 SqlCommand sqlCmd = new SqlCommand();
-                sqlCmd.CommandText = "chargerProduit";
-                sqlCmd.CommandType = CommandType.StoredProcedure;
 
+                sqlCmd.CommandText = "select NumArticle,nom,quantiteStock,prix,nomImage " +
+                "from produit where Active = 1 " +
+                "order by NumArticle asc";
                 sqlCmd.Connection = SqlConn;
-                sqlCmd.Parameters.Add("@numProduit", SqlDbType.Int).Value = num;
-                SqlDataReader reader = sqlCmd.ExecuteReader();
-
-                if (reader.Read())
-
-                    prod = new Produit(Convert.ToInt32(reader["NumArticle"]),
-                                    Convert.ToString(reader["nom"]),
-                                    Convert.ToInt32(reader["quantiteStock"]),
-                                    Convert.ToDecimal(reader["prix"]),
-                                    Convert.ToString(reader["nomImage"])                     
-                                    );
-                reader.Close();
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                while (sqlReader.Read() == true)
+                    liste.Add(new Produit(
+                       Convert.ToInt32(sqlReader["NumArticle"]),
+                       Convert.ToString(sqlReader["nom"]),
+                       Convert.ToInt32(sqlReader["quantiteStock"]),
+                       Convert.ToDecimal(sqlReader["prix"]),
+                       Convert.ToString(sqlReader["nomImage"]),
+                       Convert.ToBoolean(sqlReader["Active"])));
+                sqlReader.Close();
 
             }
+            
             catch (Exception e)
             {
                 throw new ExceptionAccessDB(e.Message);
             }
-            return prod;
 
+            return liste;
         }
 
-        public override List<Produit> ListerTous()
-        {
-            return null;
-        }
+//        public override List<Produit> ListerTous()
+//        {
+//            return null;
+//        }
+
         public override bool Modifier(Produit obj)
         {
             return false;
