@@ -22,7 +22,31 @@ namespace webs.Models
 
         public override Alcool Charger(int num)
         {
-            throw new NotImplementedException();
+            
+            Alcool alcool = null;
+
+            try
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+
+                sqlCmd.CommandText = "select NumArticle,DegreAlcool,Gout,Provenance,Active " +
+                "from alcool " +
+                "order by NumArticle asc";
+                sqlCmd.Connection = SqlConn;
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                if (sqlReader.Read() == true)
+                    alcool = new Alcool(
+                       Convert.ToInt32(sqlReader["NumArticle"]),
+                       Convert.ToInt32(sqlReader["DegreAlcool"]),
+                       Convert.ToString(sqlReader["Gout"]),
+                       Convert.ToString(sqlReader["Provenance"]));
+                sqlReader.Close();
+                return alcool;
+            }
+            catch (Exception e)
+            {
+                throw new ExceptionAccessDB(e.Message);
+            }
         }
 
         public override List<Alcool> ListerTous()
