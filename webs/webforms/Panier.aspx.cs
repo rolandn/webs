@@ -82,7 +82,7 @@ namespace webs.webforms
                     row = dt.NewRow();
                     row["Produit #"] = p.numArticle;
                     row["Nom Produit"] = p.Nom;
-                    row["Qté"] = p.Quantite;
+                    row["Qte"] = p.Quantite;
                     row["Prix Unitaire"] = p.Prix;
                     row["Prix Total"] = p.Quantite * p.Prix;
 

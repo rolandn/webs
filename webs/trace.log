@@ -49,3 +49,5 @@ Ambiguous column name 'NumArticle'.
 30-04-2019 20:10 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
 30-04-2019 20:12 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
 30-04-2019 20:22 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+01-05-2019 17:52 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+01-05-2019 18:37 -- classe Problème de connexion -- méthode Bcontinuer_Click() -- Could not find stored procedure 'AjouterCommand'.

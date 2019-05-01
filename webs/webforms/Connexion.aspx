@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="CPHContenu" runat="server">
    
     
-          
+          <form id="fSeConnecter" runat="server">
 
             <div class="elementecran" style="text-align: center;">
                 <br />
@@ -35,5 +35,6 @@
                 <br />
                 <br />
             </div>
-       
+
+       </form>
 </asp:Content>

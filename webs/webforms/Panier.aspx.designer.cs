@@ -8,44 +8,43 @@
 //------------------------------------------------------------------------------
 
 namespace webs.webforms {
-
-
-    public partial class Panier
-    {
-
+    
+    
+    public partial class Panier {
+        
         /// <summary>
-        /// fGVPanier control.
+        /// Contrôle Panier1.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm fGVPanier;
-
+        protected global::System.Web.UI.HtmlControls.HtmlForm Panier1;
+        
         /// <summary>
-        /// GridView1 control.
+        /// Contrôle GridView1.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-
+        
         /// <summary>
-        /// TBTotal control.
+        /// Contrôle TBTotal.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TBTotal;
-
+        
         /// <summary>
-        /// BCommander control.
+        /// Contrôle BCommander.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BCommander;
     }

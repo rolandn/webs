@@ -55,10 +55,43 @@ namespace webs.Models
             return liste;
         }
 
-//        public override List<Produit> ListerTous()
-//        {
-//            return null;
-//        }
+        //        public override List<Produit> ListerTous()
+        //        {
+        //            return null;
+        //        }
+
+        public override Produit Charger(int NumArticle)
+        {
+            Produit produit = null;
+            try
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+
+                sqlCmd.CommandText = "select NumArticle,nom,nomImage,prix,quantiteStock,Active " +
+                "from produit " +
+                "where NumArticle = @NumArticle";
+                sqlCmd.Connection = SqlConn;
+                sqlCmd.Parameters.Add("@NumArticle", SqlDbType.Int).Value = NumArticle;
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                if (sqlReader.Read() == true)
+                    produit = new Produit(
+                       Convert.ToInt32(sqlReader["NumArticle"]),
+                       Convert.ToString(sqlReader["nom"]),
+                       Convert.ToInt32(sqlReader["quantiteStock"]),
+                       Convert.ToDecimal(sqlReader["prix"]),
+                       Convert.ToString(sqlReader["nomImage"]),
+                       Convert.ToBoolean(sqlReader["Active"]));
+                sqlReader.Close();
+                return produit;
+
+            }
+            catch (Exception e)
+            {
+                throw new ExceptionAccessDB(e.Message);
+            }
+           
+
+        }
 
         public override bool Modifier(Produit obj)
         {

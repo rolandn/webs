@@ -31,8 +31,9 @@ namespace webs.Models
 
                 sqlCmd.CommandText = "select NumArticle,DegreAlcool,Gout,Provenance,Active " +
                 "from alcool " +
-                "order by NumArticle asc";
+                "where NumArticle = @NumArticle";
                 sqlCmd.Connection = SqlConn;
+                sqlCmd.Parameters.Add("@NumArticle", SqlDbType.Int).Value = num;
                 SqlDataReader sqlReader = sqlCmd.ExecuteReader();
                 if (sqlReader.Read() == true)
                     alcool = new Alcool(
@@ -46,7 +47,8 @@ namespace webs.Models
             catch (Exception e)
             {
                 throw new ExceptionAccessDB(e.Message);
-            }
+            }
+
         }
 
         public override List<Alcool> ListerTous()
