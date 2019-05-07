@@ -9,11 +9,26 @@ namespace webs.classesMetier
     
         public class Ligne_Cmd
         {
+            private int id;
             private int numCmd;
             private int numArticle;
             private int qte;
+        private int idcmd;
 
-            public int NumCmd
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public int NumCmd
             {
                 get { return numCmd; }
                 set { numCmd = value; }
@@ -52,19 +67,28 @@ namespace webs.classesMetier
             }
             public Ligne_Cmd(Ligne_Cmd LC)
             {
+                Id = LC.id;
                 NumCmd = LC.NumCmd;
                 NumArticle = LC.NumArticle;
                 Qte = LC.Qte;
 
             }
-            public Ligne_Cmd(int numCmd, int numArticle, int qte)
+            public Ligne_Cmd(int id, int numCmd, int numArticle, int qte)
             {
+                Id = id;
                 NumCmd = numCmd;
                 NumArticle = numArticle;
                 Qte = qte;
             }
 
-            public String toString()
+        public Ligne_Cmd(int idcmd, int numArticle, int qte)
+        {
+            this.idcmd = idcmd;
+            this.numArticle = numArticle;
+            this.qte = qte;
+        }
+
+        public String toString()
             {
                 return this.NumCmd + " ) " + this.NumArticle + this.Qte;
             }

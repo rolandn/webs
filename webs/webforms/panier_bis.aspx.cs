@@ -15,7 +15,7 @@ namespace webs.webforms
     {
         
             DataTable dt;
-            decimal prixTotal = 0;
+            decimal montant = 0;
 
 
             protected void Page_Load(object sender, EventArgs e)
@@ -44,9 +44,9 @@ namespace webs.webforms
                             row = dt.NewRow();
                             row["Produit #"] = p.numArticle;
                             row["Nom Produit"] = p.Nom;
-                            row["Qté"] = p.Quantite;
+                            row["Qté"] = p.qte;
                             row["Prix Unitaire"] = p.Prix;
-                            row["Prix Total"] = p.Quantite * p.Prix;
+                            row["Prix Total"] = p.qte * p.Prix;
 
                             dt.Rows.Add(row);
                         }
@@ -55,10 +55,10 @@ namespace webs.webforms
 
                         foreach (Produit p in liste)
                         {
-                            prixTotal += p.Quantite * p.Prix;
+                            montant += p.qte * p.Prix;
                         }
                         // afficher le prix dans le textBox
-                        TBTotal.Text = Convert.ToString(prixTotal) + " €";
+                        TBTotal.Text = Convert.ToString(montant) + " €";
 
                     }
 
@@ -106,12 +106,12 @@ namespace webs.webforms
                 // date et heure dans la commande
                 DateTime date = new DateTime();
                 date = DateTime.Now;
-                String dateCmd = date.ToShortDateString();
-                String hourCmd = date.ToShortTimeString();
+                DateTime dateCmd = date;
+                DateTime heureCmd = date;
                 // état de livraison
-                string livré = "Non";
+                string livre = "Non";
                 // num du client
-                int numClt = (int)Session["user"];
+                int numClient = (int)Session["user"];
 
                 // on récupère le panier de la Session
                 List<Produit> liste = new List<Produit>();
@@ -120,27 +120,27 @@ namespace webs.webforms
                 try
                 {
                     // on doit récupérer l'id du clt           
-                    clt = ((FabriqueDAO)Session["FabriqueDAO"]).getInstClientDAO().Charger(numClt);
+                    clt = ((FabriqueDAO)Session["FabriqueDAO"]).getInstClientDAO().Charger(numClient);
                     // générere un num de commande
-                    int idcmd = ((FabriqueDAO)Session["FabriqueDAO"]).getInstCommandeDAO().GénérerCmdID();
+                    int idCmd = ((FabriqueDAO)Session["FabriqueDAO"]).getInstCommandeDAO().GénérerCmdID();
 
                     foreach (Produit p in liste)
                     {
-                        prixTotal += p.Quantite * p.Prix;
+                        montant += p.qte * p.Prix;
                     }
 
                     // on crée la commande et on envoie en DB
-                    Commande cmd = new Commande(idcmd, dateCmd, hourCmd, prixTotal, livré, numClt);
+                    Commande cmd = new Commande(idCmd, dateCmd, heureCmd, montant, livre, numClient);
                     if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstCommandeDAO().Ajouter(cmd)) == false)
                         throw new Exception("problème lors de l'ajout de la commande");
 
                     // on crée une ligne commande pour chaque produit
                     foreach (Produit p in liste)
                     {
-                        Ligne_Cmd l_cmd = new Ligne_Cmd(idcmd, p.numArticle, p.Quantite);
+                        Ligne_Cmd l_cmd = new Ligne_Cmd(idCmd, p.numArticle, p.qte);
                         if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstLigne_CmdDAO().Ajouter(l_cmd)) == false)
                             throw new Exception("problème lors de l'ajout de la ligne commande");
-                        if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().ModifierStock(p, p.Quantite)) == false)
+                        if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().ModifierStock(p, p.qte)) == false)
                             throw new Exception("problème lors d'ajustement du stock");
                     }
 

@@ -19,7 +19,7 @@
                 <ul>
                     <li><a href="/webforms/Accueil.aspx">Accueil</a></li>
                     <li><a href="/webforms/Connexion.aspx">Se connecter</a></li>
-                    <li><a href="/webforms/Panier.aspx">Mon panier</a></li>
+                 <!--   <li><a href="/webforms/Panier.aspx">Mon panier</a></li>  -->
                     <li><a href="/webforms/panier_bis.aspx">Mon panier bis</a></li>
                     <li><a href="/webforms/listerBiere.aspx">Nos bières</a></li>
                     <li><a href="/webforms/listerAlcool.aspx">Nos alcools</a></li>

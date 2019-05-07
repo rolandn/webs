@@ -15,7 +15,7 @@ namespace webs.classesMetier
         private string nomImage;
         private bool Active;
 
-        public int Quantite { get; set; } = 1;
+        public int qte { get; set; } = 1;
 
         public Produit(int NumArticle, string nom, int quantiteStock, decimal prix, string nomImage, bool Active)
         {

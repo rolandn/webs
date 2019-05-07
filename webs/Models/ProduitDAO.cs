@@ -104,14 +104,14 @@ namespace webs.Models
         public bool ModifierStock(Produit obj, int qte)
         {
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandText = "ajusterStock";
-            sqlCmd.CommandType = CommandType.StoredProcedure;
+
+            sqlCmd.CommandText = "update produit set quantiteStock = @quantiteStock where NumArticle = @NumArticle";
 
             sqlCmd.Connection = SqlConn;
 
-            sqlCmd.Parameters.Add("@numProduit", SqlDbType.Int).Value = obj.numArticle;
+            sqlCmd.Parameters.Add("@numArticle", SqlDbType.Int).Value = obj.numArticle;
             sqlCmd.Parameters.Add("@quantiteStock", SqlDbType.Int).Value = qte;
-            sqlCmd.Parameters.Add("RetVal", SqlDbType.Int).Direction = ParameterDirection.Output;
+            
 
             return (sqlCmd.ExecuteNonQuery() == 0) ? false : true;
         }

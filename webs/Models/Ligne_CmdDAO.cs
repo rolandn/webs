@@ -21,15 +21,23 @@ namespace webs.Models
             try
             {
                 SqlCommand sqlCmd = new SqlCommand();
-                sqlCmd.CommandText = "AjouterLigneCommande";
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
+                sqlCmd.CommandText = "select max(id) + 1 " +
+                "from Ligne_Cmd";
                 sqlCmd.Connection = SqlConn;
-
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                sqlReader.Read();
+                if (sqlReader[0] == DBNull.Value)
+                    obj.Id = 1;
+                else
+                    obj.Id = Convert.ToInt32(sqlReader[0]);
+                sqlReader.Close();
+                sqlCmd.CommandText =
+                "insert into Ligne_Cmd(id,numCmd,NumArticle,Qte) " +
+               "values(@id,@numCmd,@NumArticle,@qte)";
+                sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = obj.Id;
                 sqlCmd.Parameters.Add("@numCmd", SqlDbType.Int).Value = obj.NumCmd;
-                sqlCmd.Parameters.Add("@NumArticle", SqlDbType.VarChar).Value = obj.NumArticle;
-                sqlCmd.Parameters.Add("@Qte", SqlDbType.VarChar).Value = obj.Qte;
-                sqlCmd.Parameters.Add("RetVal", SqlDbType.Int).Direction = ParameterDirection.Output;
+                sqlCmd.Parameters.Add("@NumArticle", SqlDbType.Int).Value = obj.NumArticle;
+                sqlCmd.Parameters.Add("@qte", SqlDbType.Int).Value = obj.Qte;
 
                 return (sqlCmd.ExecuteNonQuery() == 0) ? false : true;
             }

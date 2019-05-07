@@ -9,8 +9,8 @@ namespace webs.classesMetier
     public class Commande
     {
         private int idCmd;
-        private String dateCmd;
-        private String heureCmd;
+        private DateTime dateCmd;
+        private DateTime heureCmd;
         private Decimal montant;
         private String livre;
         private int numClient;
@@ -28,7 +28,7 @@ namespace webs.classesMetier
             }
         }
 
-        public String DateCmd
+        public DateTime DateCmd
         {
             get
             {
@@ -41,7 +41,7 @@ namespace webs.classesMetier
             }
         }
 
-        public String HeureCmd
+        public DateTime HeureCmd
         {
             get
             {
@@ -107,7 +107,7 @@ namespace webs.classesMetier
             NumClient = C.NumClient;
 
         }
-        public Commande(int idCmd, String dateCmd, String heureCmd, decimal montant, String livré, int numClient)
+        public Commande(int idCmd, DateTime dateCmd, DateTime heureCmd, decimal montant, String livre, int numClient)
         {
             IdCmd = idCmd;
             DateCmd = dateCmd;
@@ -116,7 +116,7 @@ namespace webs.classesMetier
             Livre = livre;
             NumClient = numClient;
         }
-        public Commande(int int1, String string1)
+        public Commande(int int1, DateTime string1)
         {
             IdCmd = int1;
             DateCmd = string1;
