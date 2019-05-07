@@ -62,6 +62,22 @@ namespace webs.webforms
                 "Problème inattendu lors du listage des alcools!");
             }
         }
-    
+
+        // Ajouter en complément ce 7 mai
+
+        private void AjouterAuPanier(object o, EventArgs e)
+        {
+            int NumArticle = Convert.ToInt32(((Button)(o)).ID);
+
+            // vérifier si le panier existe deja
+            if (Session["panier"] == null)
+                Session["panier"] = new List<int>();
+
+            // ajouter l'element au panier
+            ((List<int>)(Session["panier"])).Add(NumArticle);
+
+
+        }
+
     }
 }
