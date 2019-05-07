@@ -76,6 +76,7 @@
     <Content Include="webforms\JavaScript.js" />
     <Content Include="webforms\ListerAlcool.aspx" />
     <Content Include="webforms\ListerBiere.aspx" />
+    <Content Include="webforms\ListerPanier.aspx" />
     <Content Include="webforms\MotifsHTML\motifAlcool.html" />
     <Content Include="webforms\pagemessage.aspx" />
     <Content Include="webforms\Panier.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="webforms\ListerBiere.aspx.designer.cs">
       <DependentUpon>ListerBiere.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webforms\ListerPanier.aspx.cs">
+      <DependentUpon>ListerPanier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webforms\ListerPanier.aspx.designer.cs">
+      <DependentUpon>ListerPanier.aspx</DependentUpon>
     </Compile>
     <Compile Include="webforms\pagemessage.aspx.cs">
       <DependentUpon>pagemessage.aspx</DependentUpon>
