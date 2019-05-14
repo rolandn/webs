@@ -32,7 +32,7 @@ namespace webs.webforms
                     }
                     else
                     {
-                        // on charge la liste dans le Gdv +                       
+                                               
 
                         //on crée la table et on y met les produits
                         DataTable dt = CreateTableStructure();
@@ -44,7 +44,7 @@ namespace webs.webforms
                             row = dt.NewRow();
                             row["Produit #"] = p.numArticle;
                             row["Nom Produit"] = p.Nom;
-                            row["Qté"] = p.qte;
+                            row["Qte"] = Convert.ToInt32(TBQtite.Text);  // Modification pour prendre la quantité
                             row["Prix Unitaire"] = p.Prix;
                             row["Prix Total"] = p.qte * p.Prix;
 
@@ -137,7 +137,8 @@ namespace webs.webforms
                     // on crée une ligne commande pour chaque produit
                     foreach (Produit p in liste)
                     {
-                        Ligne_Cmd l_cmd = new Ligne_Cmd(idCmd, p.numArticle, p.qte);
+                        int numCmd = cmd.IdCmd;
+                        Ligne_Cmd l_cmd = new Ligne_Cmd(numCmd, idCmd, p.numArticle, p.qte);
                         if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstLigne_CmdDAO().Ajouter(l_cmd)) == false)
                             throw new Exception("problème lors de l'ajout de la ligne commande");
                         if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstProduitDAO().ModifierStock(p, p.qte)) == false)

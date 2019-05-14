@@ -56,6 +56,8 @@ namespace webs.webforms
                 // calcul du prix total
                 foreach (Produit p in liste)
                 {
+                  //  int qte = 0;
+                     // ne marche pas
                     montant += p.qte * p.Prix;
                     if (montant >= 150)
                     {
@@ -71,6 +73,9 @@ namespace webs.webforms
                 }
                 // afficher le prix dans le textBox
                 TBTotal.Text = Convert.ToString(montant) + " €";
+
+                // afficher la quantité mais ne marche pas
+              //  TBQtite.Text = Convert.ToString(p.qte);
 
                 //on crée la table et on y met les produits
                 DataTable dt = CreateTableStructure();
@@ -147,6 +152,8 @@ namespace webs.webforms
             DateTime dateCmd = date;
             DateTime heureCmd = date;
 
+            
+
             // état de livraison
             string livre = "0";
 
@@ -166,6 +173,7 @@ namespace webs.webforms
 
                 foreach (Produit p in liste)
                 {
+                    p.qte = Convert.ToInt32(TBQtite.Text);
                     montant += p.qte * p.Prix;
                 }
 

@@ -167,6 +167,13 @@
     <Compile Include="webforms\panier_bis.aspx.designer.cs">
       <DependentUpon>panier_bis.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webforms\panier_ter.aspx.cs">
+      <DependentUpon>panier_ter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webforms\panier_ter.aspx.designer.cs">
+      <DependentUpon>panier_ter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webforms\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +186,7 @@
     </None>
     <Content Include="webforms\Aspect.Master" />
     <Content Include="webforms\panier_bis.aspx" />
+    <Content Include="webforms\panier_ter.aspx" />
     <Content Include="webforms\StyleSheet.scss" />
   </ItemGroup>
   <ItemGroup>

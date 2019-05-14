@@ -13,7 +13,7 @@ namespace webs.classesMetier
             private int numCmd;
             private int numArticle;
             private int qte;
-        private int idcmd;
+            //private int idcmd;
 
         public int Id
         {
@@ -83,7 +83,7 @@ namespace webs.classesMetier
 
         public Ligne_Cmd(int idcmd, int numArticle, int qte)
         {
-            this.idcmd = idcmd;
+            this.numCmd = idcmd;
             this.numArticle = numArticle;
             this.qte = qte;
         }

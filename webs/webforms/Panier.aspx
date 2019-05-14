@@ -17,7 +17,14 @@
             <asp:TextBox ID="TBTotal" MaxLength="10" runat="server" ReadOnly="true"
                 CssClass="saisie-texte" Style="width: 85px;" required="required">
             </asp:TextBox>
-            <br />
+
+         <br />
+        <asp:TextBox ID="TBQtite" MaxLength="10" runat="server" ReadOnly="false"
+                CssClass="saisie-texte" Style="width: 85px;" required="required">
+            </asp:TextBox>
+            
+        
+        <br />
              <asp:Button ID="BCommander" runat="server" Text="Commander"
                 OnClick="BCommander_Click" CssClass="bouton" Height="28px" Width="111px" />
      </form>   
