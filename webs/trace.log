@@ -81,3 +81,7 @@ Ambiguous column name 'NumArticle'.
 04-06-2019 18:40 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
 04-06-2019 18:43 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
 04-06-2019 18:48 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
+04-06-2019 19:12 -- classe ListerAlcools -- méthode Page_load() -- Column 'Ligne_Cmd.numCmd' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+04-06-2019 19:13 -- classe ListerAlcools -- méthode Page_load() -- Column 'Ligne_Cmd.id' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+04-06-2019 19:32 -- classe ListerAlcools -- méthode Page_load() -- Column 'Ligne_Cmd.NumArticle' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+04-06-2019 19:33 -- classe ListerAlcools -- méthode Page_load() -- Column 'Ligne_Cmd.NumArticle' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.

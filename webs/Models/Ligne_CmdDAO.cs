@@ -61,6 +61,7 @@ namespace webs.Models
 
                 sqlCmd.CommandText = "select id,numCmd,NumArticle,Qte " +
                 "from Ligne_Cmd " +
+                "where numCmd = 35 "+
                 "order by id asc";
                 sqlCmd.Connection = SqlConn;
                 SqlDataReader sqlReader = sqlCmd.ExecuteReader();
