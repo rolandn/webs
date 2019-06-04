@@ -54,7 +54,32 @@ namespace webs.Models
 
         public override List<Ligne_Cmd> ListerTous()
         {
-            return null;
+            List<Ligne_Cmd> liste = new List<Ligne_Cmd>();
+            try
+            {
+                SqlCommand sqlCmd = new SqlCommand();
+
+                sqlCmd.CommandText = "select id,numCmd,NumArticle,Qte " +
+                "from Ligne_Cmd " +
+                "order by id asc";
+                sqlCmd.Connection = SqlConn;
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+                while (sqlReader.Read() == true)
+                    liste.Add(new Ligne_Cmd(
+                       Convert.ToInt32(sqlReader["id"]),
+                       Convert.ToInt32(sqlReader["numCmd"]),
+                       Convert.ToInt32(sqlReader["NumArticle"]),
+                       Convert.ToInt32(sqlReader["Qte"])));
+                sqlReader.Close();
+
+            }
+
+            catch (Exception e)
+            {
+                throw new ExceptionAccessDB(e.Message);
+            }
+
+            return liste;
         }
 
         public override bool Modifier(Ligne_Cmd obj)

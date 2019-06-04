@@ -100,7 +100,7 @@ namespace webs.webforms
             catch (ExceptionAccessDB ex)
             {
                 new Tools().RedirigerErreurSQL("ChargerProduit", "Page_load()",
-                ex.Message, "Problème de base de données lors du listage des alcools!");
+                ex.Message, "Problème de base de données lors du listage des produits du panier !");
             }
             catch (Exception ex)
             {
@@ -178,9 +178,9 @@ namespace webs.webforms
                 }
 
                 // on crée la commande et on envoie en DB
-                Commande cmd = new Commande(idcmd, dateCmd, heureCmd, montant, livre, numClient);
-                if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstCommandeDAO().Ajouter(cmd)) == false)
-                    throw new Exception("Problème lors de l'ajout de la commande");
+            //    Commande cmd = new Commande(idcmd, dateCmd, heureCmd, montant, livre, numClient);
+            //    if ((((FabriqueDAO)Session["FabriqueDAO"]).getInstCommandeDAO().Ajouter(cmd)) == false)
+            //        throw new Exception("Problème lors de l'ajout de la commande");
 
                 // on crée une ligne commande pour chaque produit
                 foreach (Produit p in liste)
@@ -193,9 +193,9 @@ namespace webs.webforms
                 }
 
                 // on vide la variable session
-                Session.Clear();
-                // si tout va bien on revoit une page de confirmation
-                new Tools().RedirigerMessage("Votre commande a bien été effectuée. En vous remerciant");
+            //    Session.Clear();
+            //    // si tout va bien on revoit une page de confirmation
+            //    new Tools().RedirigerMessage("Votre commande a bien été effectuée. En vous remerciant");
             }
             catch (ExceptionAccessDB ex)
             {

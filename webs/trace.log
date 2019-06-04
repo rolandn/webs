@@ -75,3 +75,9 @@ Ambiguous column name 'NumArticle'.
 14-05-2019 19:14 -- classe ChargerProduit -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
 14-05-2019 19:19 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
 14-05-2019 20:20 -- classe ChargerProduit -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
+21-05-2019 22:07 -- classe ListerAlcools -- méthode Page_load() -- id
+04-06-2019 18:14 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+04-06-2019 18:22 -- classe ChargerProduit -- méthode Page_load() -- La référence d'objet n'est pas définie à une instance d'un objet.
+04-06-2019 18:40 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
+04-06-2019 18:43 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.
+04-06-2019 18:48 -- classe ListerLigneCom -- méthode Page_load() -- Le format de la chaîne d'entrée est incorrect.

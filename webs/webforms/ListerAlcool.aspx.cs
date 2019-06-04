@@ -52,8 +52,8 @@ namespace webs.webforms
             }
             catch (ExceptionAccessDB ex)
             {
-                new Tools().RedirigerErreurSQL("ListerAlcools", "Page_load()",
-                ex.Message, "Problème de base de données lors du listage des alcools!");
+                new Tools().RedirigerErreurSQL("ListerLigneCmd", "Page_load()",
+                ex.Message, "Problème de base de données lors du listage des lignes de commande !");
             }
             catch (Exception ex)
             {

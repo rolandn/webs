@@ -77,6 +77,7 @@
     <Content Include="webforms\ListerAlcool.aspx" />
     <Content Include="webforms\ListerBiere.aspx" />
     <Content Include="webforms\MotifsHTML\motifAlcool.html" />
+    <Content Include="webforms\MotifsHTML\motifLigneCom.html" />
     <Content Include="webforms\pagemessage.aspx" />
     <Content Include="webforms\Panier.aspx" />
   </ItemGroup>
@@ -167,12 +168,12 @@
     <Compile Include="webforms\panier_bis.aspx.designer.cs">
       <DependentUpon>panier_bis.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webforms\panier_ter.aspx.cs">
-      <DependentUpon>panier_ter.aspx</DependentUpon>
+    <Compile Include="webforms\ListerLigneCom.aspx.cs">
+      <DependentUpon>ListerLigneCom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="webforms\panier_ter.aspx.designer.cs">
-      <DependentUpon>panier_ter.aspx</DependentUpon>
+    <Compile Include="webforms\ListerLigneCom.aspx.designer.cs">
+      <DependentUpon>ListerLigneCom.aspx</DependentUpon>
     </Compile>
     <Compile Include="webforms\Tools.cs" />
   </ItemGroup>
@@ -186,7 +187,7 @@
     </None>
     <Content Include="webforms\Aspect.Master" />
     <Content Include="webforms\panier_bis.aspx" />
-    <Content Include="webforms\panier_ter.aspx" />
+    <Content Include="webforms\ListerLigneCom.aspx" />
     <Content Include="webforms\StyleSheet.scss" />
   </ItemGroup>
   <ItemGroup>
